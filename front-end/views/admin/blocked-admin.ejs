@@ -1,0 +1,72 @@
+<div class="bg-info" style="height: 600px;">
+    <div class="text-center">
+        <img src="/images/icon/profile.jpg" height="150px" alt="" style="border-radius: 80px;">
+        <h4 style="font-family: serif;"><%= admin.adminName; %></h4>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <table class="table table-bordered table-slipped mt-5">
+                    <tr>
+                        <td style="color: blue;">ID</td>
+                        <td><%= admin.adminId; %></td>
+                        <td style="color: blue;">Contact</td>
+                        <td><%= admin.adminContact; %></td>
+                        <input type="hidden" name="time" id="time" value="<%= admin.countdowndate; %>">
+                    </tr>
+                </table>
+            </div>
+            <div class="text-end col-10 offset-1">
+                <a href="/admin/unblock-admin?adminID=<%=admin.id;%>" class="btn btn-primary">Unblock</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <div style="border: 2px solid black;width: 300px;margin-left: 40%;">
+            <span><h4 style="font-family: serif;">Re-Active Admin</h4>in time</span>
+            <h3 style="font-family: serif;color: green;" id="demo"></h3>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  
+    let countDownDate = document.getElementById('time').value;
+console.log('countdowndate', countDownDate);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  console.log('now', now);
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  console.log('distance', distance);
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "ACTIVATED";
+    function playSound(url) {
+                    const audio = new Audio(url);
+                    audio.play();
+                    }
+                    playSound('/tunes/success.mp3');
+  }
+}, 1000);
+
+
+</script>

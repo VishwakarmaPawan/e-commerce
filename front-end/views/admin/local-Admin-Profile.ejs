@@ -1,0 +1,20 @@
+<div class="bg-info" style="height: 600px;">
+    <div class="text-center">
+        <img src="/images/icon/profile.jpg" height="150px" alt="" style="border-radius: 80px;">
+        <h4 style="font-family: serif;"><%= isAdminLoggedInData.adminName; %></h4>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <table class="table table-bordered table-slipped mt-5">
+                    <tr>
+                        <td style="color: blue;">ID</td>
+                        <td><%= isAdminLoggedInData.adminId; %></td>
+                        <td style="color: blue;">Contact</td>
+                        <td><%= isAdminLoggedInData.adminContact; %></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

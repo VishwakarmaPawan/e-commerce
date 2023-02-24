@@ -1,0 +1,174 @@
+<div class="container bg-info" style="height: 600px;">
+    <div class="row">
+        <div class="col-7">
+            <div>
+                <div class="text-center mt-3">
+                    <h4 style="font-family: serif;">Admin List</h4>
+                </div>
+                <div style="margin-top: 10px;" class="text-end">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Add New Admin
+                    </button>
+                </div>
+                <% if(bstatus && bstatus == 'Error'){ %>
+                    <div class="text-center">
+                        <h4 style="font-family: serif;color: red;"><%= bmessage; %></h4>
+                    </div>
+                <% }else{ %>
+                <% } %>
+                <% if(adminStatus && adminStatus == 'success'){ %>
+                <div class="text-center">
+                    <h4 style="font-family: serif;color: green;"><%= adminmessage; %></h4>
+                </div>
+                <script>
+                    function playSound(url) {
+                    const audio = new Audio(url);
+                    audio.play();
+                    }
+                    playSound('/tunes/success.mp3');
+                </script>
+                <% }else{ %>
+                <% } %>
+                <table class="table table-bordered mt-1">
+                    <tr>
+                        <th>Admin Name</th>
+                        <th>Admin contact</th>
+                        <th>AdminID</th>
+                        <th>Action</th>
+                    </tr>
+                    <% if(adminlist){ %>
+                        <% for(let i = 0; i < adminlist.length; i++){ %>
+                            <tr>
+                                <td><%= adminlist[i].adminName; %></td>
+                                <td><%= adminlist[i].adminContact; %></td>
+                                <td><%= adminlist[i].adminId; %></td>
+                                <td> 
+                                    <% if(adminlist[i].blockStatus == '1'){ %>
+                                        <a href="/admin/blocked-admin?AdminID=<%=adminlist[i].id;%>">
+                                            <h5 style="font-family: serif;" id="demo">blocked</h5>
+                                        </a>
+                                    <% }else { %>
+                                        <span>
+                                            <a onclick="return confirm('Are you sure! Want to delete this Admin permanent')" href="/admin/delete-admin?AdminId=<%=adminlist[i].id;%>">
+                                                <img src="/img/delete.jpeg" height="30px" style="border-radius: 15px;">
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a onclick="blockAdmin('<%=adminlist[i].id;%>')">
+                                                <img src="/img/block.png" height="30px" style="border-radius: 15px;">
+                                            </a>
+                                        </span>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="collapse <% if(status && status == 'success'){ %>show<% }else{ %><% } %>" id="collapseExample">
+                       <div style="border: 2px solid black;padding-top: 50px;padding-bottom: 50px;margin-top: 50px;background-color: white;">
+                    <% if(status && status == 'success'){ %>
+                        <div class="text-center" style="margin-top: 80px;">
+                            <img src="/img/success.jpeg" height="100px">
+                            <h2 style="font-family: serif;">Successfully create Admin</h2>
+                            <div class="mt-3">
+                                <h5 style="font-family: serif;">ID : <%= id; %></h5>
+                                <h5 style="font-family: serif;">Password : <%= password; %></h5>
+                            </div>
+                        </div>
+                        <script>
+                            function playSound(url) {
+                            const audio = new Audio(url);
+                            audio.play();
+                            }
+                            playSound('/tunes/success.mp3');
+                        </script>
+                    <% } else{ %>
+                        <div class="text-center mt-5">
+                            <h4 style="font-family: serif;">Create New Admin</h4>
+                        </div>
+                        <div class="text-center">
+                            <h5 style="font-family: serif;color: red;"><%= message %></h5>
+                        </div>
+                        <form action="/admin/create-admin" method="post">
+                            <div class="form-group mt-5">
+                                <label style="font-weight: bold;" for="">Full Name</label>
+                                <input type="text" name="fullName" id="fullName" placeholder="pawan vishwkarma" style="margin-left: 20px;width: 70%;height: 40px;border-radius: 10px;">
+                            </div>
+                            <div class="form-group mt-5">
+                                <label style="font-weight: bold;" for="">Contact</label>
+                                <input type="number" name="contact" id="contact" placeholder="10 digit" style="margin-left: 40px;width: 70%;height: 40px;border-radius: 10px;">
+                            </div>
+                            <div class="form-group mt-5 text-center">
+                                <input type="submit" value="create" style="height: 40px;border-radius: 10px;width: 100px;" class="btn btn-primary">
+                            </div>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Block Admin</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="text-center">
+                <h4 style="font-family: serif;" id="exampleModalLabel"></h4>
+            </div>
+            <div class="text-center">
+                <form action="/admin/block-admin-by-id" method="post">
+                    <input type="datetime-local" name="date" id="date" style="width: 100px;height: 30px;border-radius: 10px 0 0 10px;">
+                    <input type="hidden" id="adminid" name="adminid">
+                <input type="submit" value="Block" class="mt-1" style="width: 80px;border-radius: 0 10px 10px 0;background-color: red;">
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    function blockAdmin(adminId) {
+      console.log("Start::: blockAdmin", adminId);
+      $.ajax({
+        url: '/admin/block-admin',
+        method: 'get',
+        data: {
+          AdminId: adminId
+        },
+        success: function (result) {
+          console.log("Result", result);
+          console.log('result', result.adminName);
+          $('#exampleModalLabel').html(result.adminName);
+          $('#adminid').val(result.id);
+          $('#exampleModal').modal('show');
+        },
+        error: function (error) {
+          console.log("error", error);
+        }
+      });
+    }
+  </script>
+
+
+
+
+
+
+<!-- countdown script -->

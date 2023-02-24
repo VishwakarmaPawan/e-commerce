@@ -1,0 +1,35 @@
+<div class="container-fluid bg-info" style="height: 600px;">
+    <div class="container">
+        <div class="text-center">
+            <h3 style="padding-top: 50px;font-family: serif;">Student List</h3>
+        </div>
+        <div>
+            <table class="table table-striped table-dark">
+                <tr>
+                    <th>s.nu</th>
+                    <th>Student Name</th>
+                    <th>Father Name</th>
+                    <th>Class</th>
+                    <th>Category</th>
+                    <th>City</th>
+                    <th>Destrict</th>
+                    <th>Action</th>
+                </tr>
+                <% for(let i = 0; i < students.length; i++){ %>
+                    <tr>
+                        <td><%= i + 1; %></td>
+                        <td><%= students[i].firstName +" "+ students[i].lastName; %></td>
+                        <td><%= students[i].fatherName; %></td>
+                        <td><%= students[i].class; %></td>
+                        <td><%= students[i].category; %></td>
+                        <td><%= students[i].city; %></td>
+                        <td><%= students[i].destrict; %></td>
+                        <td>
+                            <a href="/admin/student-deteals?studentID=<%=students[i].id%>">details</a>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>

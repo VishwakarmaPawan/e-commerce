@@ -1,0 +1,104 @@
+<div class="text text-center">
+    <div>
+        <h1 id="had" style="font-size: 80px;font-family: serif;color: blue;"></h1>
+    </div>
+    <div>
+        <h1 id="schoolname" style="font-size: 70px;font-family: serif; color: rgb(235, 129, 9);"></h1>
+    </div>
+</div>
+<div class="container">
+    <div class="text-center mt-3 mb-3">
+        <h1 style="font-style: italic;">ANNUAL FUNCTION</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-4 text-center">
+            <img src="img/school1.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        
+        <div class="col-4 text-center">
+            <img src="img/school2.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school3.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-center mt-3 mb-3">
+        <h1 style="font-style: italic;">MONTHLY GAMES</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-4 text-center">
+            <img src="img/school4.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school5.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school6.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-center mt-3 mb-3">
+        <h1 style="font-style: italic;">MONTHLY GAMES</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-4 text-center">
+            <img src="img/school7.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school8.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school9.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-center mt-3 mb-3">
+        <h1 style="font-style: italic;">Exams and Other</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-4 text-center">
+            <img src="img/school10.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school11.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+        <div class="col-4 text-center">
+            <img src="img/school12.jpg" width="80%" height="200px" style="border-radius: 50px;">
+        </div>
+    </div>
+</div>
+
+<script>
+    var i = 0;
+    var txt = 'VISHWAKARMA EDUCATION ACADEMY';
+    var speed = 60;
+    
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("schoolname").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter()
+    
+    var j = 0;
+    var txtw = 'WELCOME TO';
+    var speeds = 50;
+    function typeWriterS() {
+        if (j < txtw.length) {
+            document.getElementById("had").innerHTML += txtw.charAt(j);
+            j++;
+            setTimeout(typeWriterS, speeds);
+        }
+    }
+
+    typeWriterS()
+</script>

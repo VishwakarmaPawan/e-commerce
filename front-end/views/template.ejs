@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title><%= pagetitle; %></title>
+    
+    
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/theme.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="/css/theme.css" rel="stylesheet" />
+    <link href="/css/costem.css" rel="stylesheet" />
+
+  </head>
+  <style>
+    .pawan{
+      margin-top: -70px!important;
+      margin-bottom: -70px!important;
+    }
+    .pawanm{
+      margin: 50px!important;
+    }
+    .buttun:hover{
+      background-color: orange;
+      border-radius: 20px;
+    }
+    #elementEl::after {
+  content: '|';
+  margin-left: 5px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+  </style>
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img class="d-inline-block" src="/img/logo.png" width="50" alt="logo" />
+                <span class="fw-bold text-primary ms-2">stu<b style="color: rgb(246, 160, 0);">dent</b></span>
+            </a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                  <% if(isuserLoggedin == false){ %>
+                    <li class="nav-item px-2"><a class="nav-link" href="#flights"> <span class="nav-link-icon text-800 me-1 fas fa-plane"></span><span class="nav-link-text">Flights</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#hotels"> <span class="nav-link-icon text-800 me-1 fas fa-hotel"></span><span class="nav-link-text">Hotels</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#activities"><span class="nav-link-icon text-800 me-1 fas fa-bolt"></span><span class="nav-link-text">Activities</span></a></li>
+                  </ul>
+                  <button class="btn text-800 order-1 order-lg-0 me-2" type="button">Support</button>
+                  <a href="/sign-in" class="btn btn-voyage-outline order-0"><span class="text-primary">Sign in</span></a>
+                  <% } else{ %>
+                  
+                    <li class="nav-item px-2"><a class="nav-link" href="/games"> <span class="nav-link-icon text-800 me-1 fas fa-plane"></span><span class="nav-link-text">Games</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="/picnic"> <span class="nav-link-icon text-800 me-1 fas fa-hotel"></span><span class="nav-link-text">Picnic</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="/activities"><span class="nav-link-icon text-800 me-1 fas fa-bolt"></span><span class="nav-link-text">Activities</span></a></li>
+                  </ul>
+                  <button class="btn text-800 order-1 order-lg-0 me-2" type="button">help</button>
+                  <a href="/profile" class="btn btn-voyage-outline order-0"><span class="text-primary"><%= loggedInUser.firstName; %></span></a>
+                  <% } %>
+          </div>
+        </div>
+      </nav>
+
+      <section id="testimonial" class="gradient-custom-3">
+        <%- include(pageName); %>
+      </section>
+    </main>
+    <footer>
+      <div class="container-fluid bg-dark pawan">
+        <div class="row pawanm">
+          <div class="col-8">
+            <div class="row">
+              <div class="col-6">
+                <div style="margin-top: 50px;">
+                  <h4 style="color: white;">About Us</h4>
+                  <ul style="list-style: none;">
+                    <li><a style="color: white;" href="#">Games</a></li>
+                    <li><a style="color: white;" href="#">Exams</a></li>
+                    <li><a style="color: white;" href="#">Functions</a></li>
+                    <li><a style="color: white;" href="#">Picnic</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6">
+                <div style="margin-top: 50px;">
+                  <h4 style="color: white;">Contact Us</h4>
+                  <form action="">
+                    <label for="">Enter your email</label><br>
+                    <input placeholder="pkv658@gmail.com" class="bg-dark" style="border: none;border-bottom: 2px solid white;width: 80%;height: 40px;color: white;" type="email" name="email">
+                    <input class="buttun" style="height: 40px;width: 19%;
+                    " type="submit" value="submit">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 text-center">
+              <h1 id="elementEl" style="font-family: serif;color: white;margin-top: 80px;">Thanks for visit</h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  'use strict';
+
+function type(el) {
+    const textArray = el.innerHTML.split('');
+    el.innerHTML = '';
+    textArray.forEach((letter, i) =>
+        setTimeout(() => (el.innerHTML += letter), 95 * i)
+    );
+}
+
+type(elementEl);
+</script>

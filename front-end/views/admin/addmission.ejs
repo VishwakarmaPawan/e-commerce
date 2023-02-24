@@ -1,0 +1,51 @@
+<div class="text-center">
+    <div style="background-color: silver;" class="text-center">
+        <% if(messagedate){ %>
+            <h4 style="color: green;font-size: 80px;font-family: serif;padding-top: 150px;padding-bottom: 150px;"><%= messagedate; %></h4>    
+        <% }else { %>
+            <div style="margin-left: 30%;width: 600px;height: 600px;padding-top: 50px;">
+                <h4>Addmission Form date</h4>
+                <div class="text-center">
+                    <h5 style="color: red;font-family: serif;"><%= message; %></h5>
+                </div>
+                <form action="addmissiondatealot" method="post">
+                    <div style="margin-top: 50px;">
+                        <table style="width: 600px;">
+                            <tr>
+                                <td><label for="">Academic Year</label></td>
+                                <td><input type="text" name="year" id="year" class="form-control" style="width: 80%;">
+                                <input type="hidden" name="academicYearName" id="academicYearName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="">Start date</label></td>
+                                <td><input type="date" name="startdate" id="startdate" class="form-control" style="width: 80%;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="">Last date</label></td>
+                                <td><input type="date" name="lastdate" id="lastdate" class="form-control" style="width: 80%;"></td>
+                            </tr>
+                        </table>
+                        <input style="margin-top: 30px;" type="submit" value="submit" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<script>
+    function yearName(){
+        let date = new Date();
+        let year = date.getFullYear();
+        console.log('year', year);
+        let yearName = 'addmissionDate'+year;
+        console.log('yearName', yearName);
+        document.getElementById('academicYearName').value = yearName;
+        console.log('year + 1', year + 1)
+        let addyear = year + 1;
+        let academicyear = year+'-'+addyear;
+        document.getElementById('year').value = academicyear;
+    }
+    yearName();
+</script>

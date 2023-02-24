@@ -1,0 +1,238 @@
+<div class="container">
+    <section class="bg-image">
+  <div class="mask d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an Profile</h2>
+
+              <div>
+                <% if(status && message){ %>
+                    <h4 style="color: red; font-family: serif;"><%= message; %></h4>  
+                  <% } %>
+              </div>
+
+              <form action="/register" method="post">
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">First Name</label>
+                  <input type="text" name="firstName" class="form-control" value="<%= bodydata.firstName; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" value="<%= bodydata.lastName; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Father Name</label>
+                    <input type="text" name="fatherName" class="form-control" value="<%= bodydata.fatherName; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Mother Name</label>
+                    <input type="text" name="motherName" class="form-control" value="<%= bodydata.motherName; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Your Age</label>
+                    <input type="number" name="age" class="form-control" value="<%= bodydata.age; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Data of Birth</label>
+                    <input type="date" name="dob" class="form-control" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Select Gender</label>
+                    <ul style="list-style: none;">
+                        <li>
+                            <span>
+                                <input type="radio" name="gender" value="male" <%if(bodydata.gender == "male"){%>
+                                    <%="checked"%>    
+                                <% }%> >Male
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <input type="radio" name="gender" value="female" <%if(bodydata.gender == "female"){%>
+                                    <%="checked"%>    
+                                <% }%> >Female
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <input type="radio" name="gender" value="other" <%if(bodydata.gender == "other"){%>
+                                    <%="checked"%>    
+                                <% }%> >Other
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Select Category</label>
+                    <ul style="list-style: none;">
+                        <li>
+                            <span>
+                                <input type="radio" name="category" value="obc" <%if(bodydata.category == "obc"){%>
+                                    <%="checked"%>    
+                                <% }%> >OBC
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <input type="radio" name="category" value="general" <%if(bodydata.category == "general"){%>
+                                    <%="checked"%>    
+                                <% }%> >General
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <input type="radio" name="category" value="sc/st" <%if(bodydata.category == "sc/st"){%>
+                                    <%="checked"%>    
+                                <% }%> >SC/ST
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="form-outline mb-4">
+                    <label for="">District</label>
+                    <input type="text" name="destrict" class="form-control" value="<%= bodydata.destrict; %>">
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label for="">City or village</label>
+                    <input type="text" name="city" class="form-control" value="<%= bodydata.city; %>">
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Addmission Class</label>
+                    <select class="form-control" name="class" id="class">
+                        <option value="">Select class</option>
+                        <option value="1st" <%if(bodydata.class == "1st"){%><%="selected"%><% }%> >1st</option>
+                        <option value="2nd" <%if(bodydata.class == "2nd"){%><%="selected"%><% }%> >2nd</option>
+                        <option value="3rd" <%if(bodydata.class == "3rd"){%><%="selected"%><% }%> >3rd</option>
+                        <option value="4th" <%if(bodydata.class == "4th"){%><%="selected"%><% }%> >4th</option>
+                        <option value="5th" <%if(bodydata.class == "5th"){%><%="selected"%><% }%> >5th</option>
+                        <option value="6th" <%if(bodydata.class == "6th"){%><%="selected"%><% }%> >6th</option>
+                        <option value="7th" <%if(bodydata.class == "7th"){%><%="selected"%><% }%> >7th</option>
+                        <option value="8th" <%if(bodydata.class == "8th"){%><%="selected"%><% }%> >8th</option>
+                        <option value="9th" <%if(bodydata.class == "9th"){%><%="selected"%><% }%> >9th</option>
+                        <option value="10th" <%if(bodydata.class == "10th"){%><%="selected"%><% }%> >10th</option>
+                        <option value="11th maths" <%if(bodydata.class == "11th maths"){%><%="selected"%><% }%> >11th maths</option>
+                        <option value="11th bio" <%if(bodydata.class == "11th bio"){%><%="selected"%><% }%> >11th bio</option>
+                        <option value="11th commers" <%if(bodydata.class == "11th commers"){%><%="selected"%><% }%> >11th commers</option>
+                        <option value="11th art" <%if(bodydata.class == "11th art"){%><%="selected"%><% }%> >11th art</option>
+                        <option value="11th Ag" <%if(bodydata.class == "11th Ag"){%><%="selected"%><% }%> >11th Ag</option>
+                    </select>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Previous Class</label>
+                    <select class="form-control" name="previousclass" id="previousclass">
+                        <option value="">Select class</option>
+                        <option value="1st" <%if(bodydata.previousclass == "1st"){%><%="selected"%><% }%> >1st</option>
+                        <option value="2nd" <%if(bodydata.previousclass == "2nd"){%><%="selected"%><% }%> >2nd</option>
+                        <option value="3rd" <%if(bodydata.previousclass == "3rd"){%><%="selected"%><% }%> >3rd</option>
+                        <option value="4th" <%if(bodydata.previousclass == "4th"){%><%="selected"%><% }%> >4th</option>
+                        <option value="5th" <%if(bodydata.previousclass == "5th"){%><%="selected"%><% }%> >5th</option>
+                        <option value="6th" <%if(bodydata.previousclass == "6th"){%><%="selected"%><% }%> >6th</option>
+                        <option value="7th" <%if(bodydata.previousclass == "7th"){%><%="selected"%><% }%> >7th</option>
+                        <option value="8th" <%if(bodydata.previousclass == "8th"){%><%="selected"%><% }%> >8th</option>
+                        <option value="9th" <%if(bodydata.previousclass == "9th"){%><%="selected"%><% }%> >9th</option>
+                        <option value="10th" <%if(bodydata.previousclass == "10th"){%><%="selected"%><% }%> >10th</option>
+                        <option value="11th maths" <%if(bodydata.previousclass == "11th maths"){%><%="selected"%><% }%> >11th maths</option>
+                        <option value="11th bio" <%if(bodydata.previousclass == "11th bio"){%><%="selected"%><% }%> >11th bio</option>
+                        <option value="11th commers" <%if(bodydata.previousclass == "11th commers"){%><%="selected"%><% }%> >11th commers</option>
+                        <option value="11th art" <%if(bodydata.previousclass == "11th art"){%><%="selected"%><% }%> >11th art</option>
+                        <option value="11th Ag" <%if(bodydata.previousclass == "11th Ag"){%><%="selected"%><% }%> >11th Ag</option>
+                    </select>
+                
+                    <table class="form-control">
+                        <tr>
+                            <td>
+                                parsentage
+                            </td>
+                            <td>
+                                Total marks
+                            </td>
+                            <td>
+                                Year
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" name="parsentage" class="form-control" value="<%= bodydata.persentage; %>">
+                            </td>
+                            <td>
+                                <input type="number" name="marks" class="form-control" value="<%= bodydata.marks %>">
+                            </td>
+                            <td>
+                                <select name="year" id="year" class="form-control">
+                                    <option value="">select year</option>
+                                    <option value="2020" <%if(bodydata.year == "2020"){%>
+                                        <%="selected"%>    
+                                    <% }%> >2020</option>
+                                    <option value="2021" <%if(bodydata.year == "2021"){%>
+                                        <%="selected"%>    
+                                    <% }%> >2021</option>
+                                    <option value="2022" <%if(bodydata.year == "2022"){%>
+                                        <%="selected"%>    
+                                    <% }%> >2022</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <input type="email" name="email" class="form-control" value="<%= bodydata.email; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Contact</label>
+                    <input type="number" name="contact" class="form-control" value="<%= bodydata.contact; %>" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cg">Password</label><br>
+                  <input type="text" name="password" id="password" style="width: 80%;" placeholder="pkOP56$@" value="<%= bodydata.password; %>" />
+                  <button type="button" onclick="genPassword()">Generate</button>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+
+<script>
+        var password=document.getElementById("password");
+
+ function genPassword() {
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var passwordLength = 7;
+    var password = "";
+ for (var i = 0; i <= passwordLength; i++) {
+   var randomNumber = Math.floor(Math.random() * chars.length);
+   password += chars.substring(randomNumber, randomNumber +1);
+  }
+        document.getElementById("password").value = password;
+ }
+</script>

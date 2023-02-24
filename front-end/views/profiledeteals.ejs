@@ -1,0 +1,145 @@
+<style>
+    .profile{
+    font-family: serif;
+    font-weight: normal!important;
+}
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8 offset-2 bg-light mt-5" style="border-radius: 20px; border: 2px solid black">
+            <div class="row">
+                <div class="col-2">
+                    <div>
+                        <img src="/images/icon/profile.jpg" width="100%" style="border-radius: 130px;">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div style="margin-top: 50px;margin-left: 50px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h4 class="profile"> Student Name : </h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile" ><%= loggedInUser.firstName +" "+ loggedInUser.lastName; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Father Name :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.fatherName; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Mother Name :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.motherName; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">DOB :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.dob; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Age :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.age; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Gender :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.gender; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile" >Category :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.category; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Destrict:</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.destrict; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">City :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.city; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Email :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.email; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Contact :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.contact; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Previous Class :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.previousclass; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Parsentage :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.persentage; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Marks :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.marks; %></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="profile">Year :</h4>
+                                </td>
+                                <td>
+                                    <h4 class="profile"><%= loggedInUser.year; %></h4>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

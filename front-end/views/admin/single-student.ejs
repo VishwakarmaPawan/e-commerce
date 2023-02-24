@@ -1,0 +1,60 @@
+<div class="container-fluid bg-secondary">
+    <div class="text-center" style="padding: 10px;">
+        <img src="/images/icon/profile.jpg" height="150px" alt="" style="border-radius: 80px;">
+        <h4 style="font-family: serif;"><%= student.firstName +" "+ student.lastName; %></h4>
+    </div>
+    <div class="mt-3">
+        <table class="table table-striped">
+            <tr>
+                <td>Father Name</td>
+                <td><%= student.fatherName; %></td>
+                <td style="border-left: 1px solid white;">Mother Name</td>
+                <td><%= student.motherName; %></td>
+            </tr>
+            <tr>
+                <td>Roll Number</td>
+                <td>36532747</td>
+                <td style="border-left: 1px solid white;">Attendence</td>
+                <td>71</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><%= student.age; %></td>
+                <td style="border-left: 1px solid white;">DOB</td>
+                <td><%= student.dob; %></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><%= student.category; %></td>
+                <td style="border-left: 1px solid white;">Gender</td>
+                <td><%= student.gender; %></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><%= student.city; %></td>
+                <td style="border-left: 1px solid white;">District</td>
+                <td><%= student.destrict; %></td>
+            </tr>
+            <tr>
+                <td colspan="2">Class</td>
+                <td colspan="2"><%= student.class; %></td>
+            </tr>
+            <tr>
+                <td colspan="2">Previousclass</td>
+                <td colspan="2" style="background-color: skyblue;"><%= student.previousclass +"  "+ student.year; %></td>
+            </tr>
+            <tr>
+                <td>Marks</td>
+                <td style="background-color: skyblue;"><%= student.marks; %></td>
+                <td style="border-left: 1px solid white;">Persentage</td>
+                <td style="background-color: skyblue;"><%= student.persentage; %></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><%= student.contact; %></td>
+                <td style="border-left: 1px solid white;">Email ID</td>
+                <td><%= student.email; %></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title><%= pagetitle; %></title>
+    
+    
+    <!-- ===============================================-->
+    <!--    Fav icons-->
+    <!-- ===============================================-->
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <style>
+    .adminMenu:hover{
+      background-color: slateblue;
+      border-radius: 0px 10px 10px 0px;
+      padding: 8px;
+      color: white;
+    }
+    .adminMenu{
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: serif;
+    }
+    .Iloveyou {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+    #login .containers #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: black;
+}
+#login .containers #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .containers #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+  </style>
+  <body style="overflow-y: hidden;">
+
+    <% if(isAdminLoggedIn == true){ %>
+          <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+      <% if(isAdminLoggedInData.blockStatus == 1){ %>
+          <div class="container-fluid text-center Iloveyou">
+            <div style="height: 300px;">
+            </div>
+            <div>
+              <h1 id="blockdeteals" style="font-size: 40px;font-family: serif; color: rgb(0, 0, 0);"></h1>
+              <div class="text-center mt-5">
+                <div style="border: 2px solid black;width: 300px;margin-left: 40%;">
+                    <span><h4 style="font-family: serif;">Re-Active You</h4>in time</span>
+                    <h3 style="font-family: serif;color: green;" id="status"></h3>
+                    <a href="/admin/delete-cookie">
+                      <h3 style="font-family: serif;color: green;" id="demo"></h3>
+                    </a>
+                </div>
+              </div>
+              <input type="hidden" name="time" id="time" value="<%= isAdminLoggedInData.countdowndate; %>">
+            </div>
+          </div>
+      <% }else { %>
+        <main class="main" id="top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3 d-block mb-1" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" href="/admin">
+                    <img class="d-inline-block" src="/img/logo.png" width="50" alt="logo" />
+                    <span class="fw-bold text-primary ms-2">Ad<b style="color: rgb(246, 160, 0);">min</b></span>
+                </a>
+              <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                    <li class="nav-item px-2"><a class="nav-link" href="#"> <span class="nav-link-icon text-800 me-1 fas fa-plane"></span><span class="nav-link-text" style="color: white;">Games</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#"> <span class="nav-link-icon text-800 me-1 fas fa-hotel"></span><span style="color: white;" class="nav-link-text">Picnic</span></a></li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#"><span class="nav-link-icon text-800 me-1 fas fa-bolt"></span><span style="color: white;" class="nav-link-text">Activities</span></a></li>
+                  </ul>
+                  <% if(isAdminLoggedInData.adminRole == 'main'){ %>
+                    <a href="/admin/add-new-admin" class="btn btn-voyage-outline order-0"><span class="text-primary">Admin</span></a>
+                  <% }else { %>
+                    <a href="/admin/profile" class="btn btn-voyage-outline order-0"><span class="text-primary">local</span></a>
+                  <% } %>
+              </div>
+            </div>
+          </nav>
+          <div class="row">
+              <div class="col-2 bg-dark" style="overflow: scroll;height: 600px;overflow-x: hidden;">
+                <ul style="list-style: none;margin-top: 50px;margin-left: 30px;">
+                  <% if(isAdminLoggedInData.adminRole == 'main'){ %>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Home</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Picnic and toor</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Games</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Competition</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Attendence</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Test</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Result</span></a></li>
+                    <li><a href="/admin/student" class="adminMenu"><span>Students</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Holiday</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Teacher</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Project</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Time Table</span></a></li>
+                    <li><a href="/admin/addmission" class="adminMenu"><span>Addmission</span></a></li>
+                  <% }else{ %>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Home</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Picnic and toor</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Games</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Competition</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Attendence</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Test</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Result</span></a></li>
+                    <li><a href="/admin/student" class="adminMenu"><span>Students</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Holiday</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Teacher</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Project</span></a></li>
+                    <li><a href="/admin/picnic" class="adminMenu"><span>Time Table</span></a></li>
+                  <% } %>
+                </ul>
+              </div>
+              <div class="col-10" style="overflow: scroll; height: 600px;overflow-x: hidden;">
+                <%- include(pageName); %>
+              </div>
+          </div>
+        </main>
+        <footer>
+          <div class="container-fluid bg-dark pawan mt-1">
+            <div class="row pawanm">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <div style="margin-top: 20px;" class="text-center">
+                      <h4 style="color: white;margin-bottom: 20px;">Copyright: (@pawan): Build your website contact us: 9171063157 (Pawan Vishwakarma)</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      <% } %>
+    <% }else { %>
+        <div class="container-fluid text-center Iloveyou">
+          <div id="login">
+            <div class="container containers pt-5">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12" style="border-radius: 20px;">
+                            <form id="login-form" class="form" action="admin/login" method="post">
+                                <h3 class="text-center text-info">Login</h3>
+                                <div class="form-group">
+                                  <input type="text" name="id" placeholder="AdminId" id="id" class="form-control mt-2 text-center" style="border: none;background-color: black;border-bottom: 2px solid white;color: white;">
+                                </div>
+                                <label for="ID" class="text-info">ID:</label><br>
+                                <div class="form-group">
+                                  <input type="password" name="password" placeholder="12345" id="password" class="form-control mt-2 text-center" style="border: none;background-color: black;border-bottom: 2px solid white;color: white;">
+                                </div>
+                                <label for="password" class="text-info">Password:</label><br>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-info btn-md mt-5" value="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>  
+    <% } %>
+  </body>
+</html>
+
+
+<script>
+    var i = 0;
+    var txt = 'Your ID has been blocked. Your ID will be reactivated in time';
+    var speed = 60;
+    
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("blockdeteals").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter()
+</script>
+
+
+
+
+<script>
+  
+  let countDownDate = document.getElementById('time').value;
+console.log('countdowndate', countDownDate);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+// Get todays date and time
+var now = new Date().getTime();
+console.log('now', now);
+
+// Find the distance between now an the count down date
+var distance = countDownDate - now;
+console.log('distance', distance);
+
+// Time calculations for days, hours, minutes and seconds
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the result in an element with id="demo"
+document.getElementById("demo").innerHTML = days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+
+// If the count down is finished, write some text
+if (distance < 0) {
+  clearInterval(x);
+  document.getElementById("status").innerHTML = "ACTIVATED";
+  document.getElementById("demo").innerHTML = '<button class="btn btn-primary" style="width: auto;">LOG-IN NOW</button>';
+  function playSound(url) {
+                  const audio = new Audio(url);
+                  audio.play();
+                  }
+                  playSound('/tunes/activatedid.mp3');
+}
+}, 1000);
+
+
+</script>
